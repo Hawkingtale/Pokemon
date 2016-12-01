@@ -1,7 +1,12 @@
 package PokemonFrame;
 
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import pokemonController.PokemonController;
@@ -11,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.Event;
 import java.awt.Color;
 
-public class PokemonFrame extends JPanel
+public class PokemonPanel extends JPanel
 {
 	private PokemonController baseController;
 	private ImageIcon pokemonIcon;
@@ -31,14 +36,16 @@ public class PokemonFrame extends JPanel
 	private JTextField nameField;
 	private JTextField numberField;
 	private JTextArea advancedArea;
+	private JButton pokemonButton;
 	
-	public PokemonPanel(PokeController baseController)
-
+	public PokemonPanel(PokemonController baseController)
 	{
 		super();
 		this.baseController = baseController;
 		this.baseLayout = new SpringLayout();
-		this.pokeButton = new JButton("GOTTA CATCH THEM ALL");
+		this.pokemonButton = new JButton("GOTTA CATCH THEM ALL");
+		this.pokemonSelector = new JComboBox(new Strin [] {"Metagross","Bronzong","Aegislash","Gallade","Flygon"});
+		
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -47,7 +54,19 @@ public class PokemonFrame extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
-		this
+		this.setBackground(Color.cyan);
+		this.add(updateButton);
+		this.add(pokemonLabel);
+		this.add(healthLabel);
+		
+	}
+	private void setupLayout()
+	{
+		
+	}
+	private void setupListeners()
+	{
+		
 	}
 }
 
