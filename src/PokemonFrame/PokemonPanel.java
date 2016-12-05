@@ -26,10 +26,10 @@ public class PokemonPanel extends JPanel
 	private JLabel pokemonLabel;
 	private JLabel healthLabel;
 	private JLabel combatLabel;
-	private JLabel speedLabe;
+	private JLabel speedLabel;
 	private JLabel nameLabel;
 	private JLabel numberLabel;
-	private JLabel advancedLevel;
+	private JLabel advancedLabel;
 	private JTextField healthField;
 	private JTextField combatField;
 	private JTextField speedField;
@@ -37,14 +37,29 @@ public class PokemonPanel extends JPanel
 	private JTextField numberField;
 	private JTextArea advancedArea;
 	private JButton pokemonButton;
+
 	
 	public PokemonPanel(PokemonController baseController)
 	{
 		super();
 		this.baseController = baseController;
 		this.baseLayout = new SpringLayout();
+		this.pokemonIcon = new ImageIcon(getClass().getResource(""));
 		this.pokemonButton = new JButton("GOTTA CATCH THEM ALL");
-		this.pokemonSelector = new JComboBox(new Strin [] {"Metagross","Bronzong","Aegislash","Gallade","Flygon"});
+		this.pokedexSelector = new JComboBox(new String [] {"Metagross","Bronzong","Aegislash","Gallade","Flygon"});
+		this.pokemonLabel = new JLabel("the current pokemon is," pokemonIcon, JLabel.CENTER);
+		this.healthLabel = new JLabel("");
+		this.combatLabel = new JLabel("");
+		this.speedLabel = new JLabel("");
+		this.nameLabel = new JLabel("");
+		this.numberLabel = new JLabel("");
+		this.advancedLabel = new JLabel("");
+		this.healthField = new JTextField(5);
+		this.combatField = new JTextField(5);
+		this.speedField = new JTextField(5);
+		this.nameField = new JTextField(25);
+		this.numberField = new JTextField(5);
+		this.advancedArea = new JTextArea(10,25);
 		
 		setupPanel();
 		setupLayout();
@@ -66,7 +81,22 @@ public class PokemonPanel extends JPanel
 	}
 	private void setupListeners()
 	{
-		
+		pokedexSelector.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				int selected = pokedexSelector.getSelectedIndex();
+				nameField.setText(baseController.getPokedex().get(selected).getName())
+				numberField.setText(baseController.getPokedex().get(selected).getNumber() + "");
+				combatField.setText(baseController.getPokedex().get(selected).getAttackPoints() + "");
+				speedField.setText(baseController.getPokedex().get(selected).getSpeed() +"");
+				healthField.setText(baseController.getPokedex().getselected).getPokemonInformation()
+						+"\n\n" + baseController.getPokedex().get(selected).getPokemonTypes());
+				changeColorBasedOnData(baseController.getPokedex().get(selected).getPokemonTypes);
+				changeImageDisplay(baseController.getPokedex().get(selected).getClass().getSimpleName());
+			});
+
+		}
 	}
 }
 
