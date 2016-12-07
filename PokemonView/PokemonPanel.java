@@ -1,4 +1,4 @@
-package PokemonFrame;
+package PokemonView;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;

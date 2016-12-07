@@ -14,35 +14,50 @@ public abstract class Pokemon
 	}
 	public String getPokemonTypes()
 	{
-		return name;
+		String types = "this pokemon is type :\n";
+		class<?> [] types = getClass().getInterface();
+		String [] pokeTypes = new String[types.length];
+		{
+			String temp = types[index].getCononicalName();
+			
+			poketypes[index] = temp;
+		}
+		for(String current : pokeTypes)
+		{
+			String temp = current.replace(this.getClass().getPackage().getName() + "", "");
+			pokeTypes += temp + "\n";
+		}
+				
+		
+		return types;
 	}
 	public String toString()
 	{
-		
+		return toString();
 	}
 	public String getPokemonInformation()
 	{
-		return number
+		return getPokemonInformation();
 	}
 	public int getHealthPoints()
 	{
-		
+		return healthPoints;
 	}
 	public int getAttackPoints()
 	{
-		
+		return attackPoints;
 	}
 	public double getSpeed()
 	{
-		
+		return speed;
 	}
 	public int getNumber()
 	{
-		
+		return number;
 	}
 	public String getName()
 	{
-		
+		return name;
 	}
 	public void setHealthPoints(int healthPoints)
 	{

@@ -1,10 +1,8 @@
-package PokemonFrame;
+package PokemonView;
 
 import javax.swing.*;
-
-import pokemonController.PokemonModel;
+import pokemonModel.Pokemon;
 import pokemonController.PokemonController;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -14,17 +12,13 @@ public class PokemonFrame extends JFrame
 {
 	private PokemonController baseController;
 	private PokemonPanel appPanel;
-	{
-		private PokemonController baseController;
-		private PokemonPanel appPanel;
 		
-		PokemonFrame(pokemonController baseController)
-		{
+	PokemonFrame(PokemonController baseController)
+	{
 			super();
 			this.baseController= baseController;
 			this.appPanel = new PokemonPanel(baseController);
-			
-			this.setupFrame();
+
 			
 		}
 		private void setupFrame()
@@ -35,6 +29,6 @@ public class PokemonFrame extends JFrame
 			this.setLocationRelativeTo(null);
 			this.setVisible(true);
 		}
-	}
-	
 }
+	
+
